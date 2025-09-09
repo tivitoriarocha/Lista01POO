@@ -200,8 +200,190 @@ public class Lista1P2 {
 
     }
 
+    public static void questao7(){
+        /*7. Escreva um programa que leia um número inteiro. Verificar por meio de condição se 
+        o valor fornecido está na faixa entre 0 (zero) e 9 (nove). Caso o valor fornecido esteja 
+        dentro da faixa, apresentar a mensagem “valor válido”. Caso contrário, apresentar a mensagem 
+        “valor inválido”, em qualquer outro caso, informe "erro".*/
+        
+        Scanner input = new Scanner(System.in);
+        int num; 
+
+       System.out.print("Digite um número inteiro: ");
+        
+        if (input.hasNextInt()) {
+            num = input.nextInt();
+            if (num >= 0 && num <= 9) {
+                System.out.println("VALOR VÁLIDO!");
+            } else {
+                System.out.println("VALOR INVÁLIDO!");
+            }
+        } else {
+            System.out.println("ERRO");
+            input.next();
+        }
+        
+        input.close();
+
+    }
+
+    public static void questao8(){
+        /*8. Escreva um programa que leia um número inteiro (variável CÓDIGO). Verificar se o código é igual 
+        a 1, igual a 2 ou igual a 3. Caso não seja, apresentar a mensagem “Código inválido”. Ao ser 
+        verificado o código e constatado que é um valor válido, o programa deve verificar cada código em 
+        separado para determinar seu valor por extenso, ou seja, apresentar a mensagem “um”, ”dois” ou “três”. 
+        (Utilizar o comando Switch).*/
+        
+        Scanner input = new Scanner(System.in);
+       
+        System.out.print("Digite o código (1, 2 ou 3): ");
+        int codigo = input.nextInt();
+        
+        switch (codigo) {
+            case 1:
+                System.out.println("um");
+                break;
+            case 2:
+                System.out.println("dois");
+                break;
+            case 3:
+                System.out.println("três");
+                break;
+            default:
+                System.out.println("Código inválido");
+        }
+        
+        input.close();
+
+    }
+
+    public static void questao9(){
+        /*9. Escreva um programa que leia três valores para os lados de um triângulo (variáveis A, B e C). 
+        Verificar se cada lado é menor que a soma dos outros dois lados. Se sim, saber de A==B e se B==C, 
+        sendo verdade o triângulo é equilátero; Se não, verificar de A==B ou se A==C ou se B==C, sendo verdade 
+        o triângulo é isósceles; e caso contrário, o triângulo será escaleno. Caso os lados fornecidos não 
+        caracterizarem um triângulo, avisar a ocorrência.*/
+        
+        Scanner input = new Scanner(System.in);
+        float A, B, C;
+
+        System.out.println("Informe o valor dos lados do triângulo: ");
+        System.out.print("LADO A - ");
+        A = input.nextFloat();
+        System.out.print("LADO B - ");
+        B = input.nextFloat();
+        System.out.print("LADO C - ");
+        C = input.nextFloat();
+
+        if (A < B + C && B < A + C && C < A + B) {
+            if (A==B && B==C) {
+                System.out.println("É um triângulo equilátero!");
+            }else if (A==B || A==C || B==C) {
+                System.out.println("É um triângulo isósceles!");
+            }else{
+                System.out.println("É um triângulo escaleno!");
+            }    
+        }else{
+            System.err.println("Não é triângulo...");
+        }
+
+    }
+
+    public static void questao10(){
+        /*10. Escrever um programa declarando três variáveis do tipo inteiro (a, b e c). Ler um valor maior que zero 
+        para cada variável (se o valor digitado não é válido, mostrar mensagem e ler novamente). Exibe o menor valor 
+        lido multiplicado pelo maior e o maior valor dividido pelo menor.*/
+        
+        Scanner input = new Scanner(System.in);
+        int a, b, c;
+
+        do {
+            System.out.print("1º VALOR (maior que zero): ");
+            a = input.nextInt();
+            if (a <= 0) {
+                System.out.println("VALOR INVÁLIDO! Digite um número maior que zero.");
+            }
+        } while (a <= 0);
+        
+        do {
+            System.out.print("2º VALOR (maior que zero): ");
+            b = input.nextInt();
+            if (b <= 0) {
+                System.out.println("VALOR INVÁLIDO! Digite um número maior que zero.");
+            }
+        } while (b <= 0);
+        
+        do {
+            System.out.print("3º VALOR (maior que zero): ");
+            c = input.nextInt();
+            if (c <= 0) {
+                System.out.println("VALOR INVÁLIDO! Digite um número maior que zero.");
+            }
+        } while (c <= 0);
+        
+        int menor = a;
+        int maior = a;
+        
+        if (b < menor) menor = b;
+        if (c < menor) menor = c;
+        
+        if (b > maior) maior = b;
+        if (c > maior) maior = c;
+        
+        int multiplicacao = menor * maior;
+        double divisao = (double) maior / menor;
+        
+        System.out.println("Menor valor: " + menor);
+        System.out.println("Maior valor: " + maior);
+        System.out.println("Menor × Maior: " + multiplicacao);
+        System.out.println("Maior ÷ Menor: " + divisao);
+
+    }
+
+    public static void questao11(){
+        /*11. Faça um programa que leia um número inteiro e mostre uma mensagem na tela indicando se este número é 
+        positivo ou negativo.*/
+        
+        Scanner input = new Scanner(System.in);
+        int num;
+
+        System.out.println("Informe um número inteiro: ");
+        num = input.nextInt();
+
+        if (num<0) {
+            System.out.println("NÚMERO NEGATIVO");
+        }else if (num>0) {
+            System.out.println("NÚMERO POSITIVO");
+        }else{
+            
+        }
+
+    }
+
+    public static void questao12(){
+        /*12. Faça um programa que leia um número. Se positivo, armazene-o em A, se for negativo, em B. 
+        No final mostrar o os número em um único print.*/
+        
+        Scanner input = new Scanner(System.in);
+        int num, A, B;
+
+        System.out.println("Informe um número inteiro: ");
+        num = input.nextInt();
+
+        if (num>0) {
+            A = num;
+            System.out.printf("NÚMERO POSITIVO - %d", A);
+        }else if (num<0) {
+            B = num;
+            System.out.printf("NÚMERO NEGATIVO - %d", B);
+        }else{
+            System.out.println("NÚMERO NEUTRO");
+        }
+
+    }
+
 
     public static void main(String[] args) {
-        questao6();
+        questao12();
     }
 }
